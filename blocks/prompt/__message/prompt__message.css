@@ -1,0 +1,17 @@
+.prompt__message {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    padding: 34px 0 0 36px;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .prompt__message {
+        width: 238px;
+        font-size: 18px;
+        line-height: 22px;
+        padding: 25px 22px 0;
+    }
+}

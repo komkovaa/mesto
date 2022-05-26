@@ -17,3 +17,10 @@
 @import url(../blocks/element/__chosen/element__chosen.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
+@import url(../blocks/prompt/prompt.css);
+@import url(../blocks/prompt/__close/prompt__close.css);
+@import url(../blocks/prompt/__form/prompt__form.css);
+@import url(../blocks/prompt/__message/prompt__message.css);
+@import url(../blocks/prompt/__field1/prompt__field1.css);
+@import url(../blocks/prompt/__field2/prompt__field2.css);
+@import url(../blocks/prompt/__submit/prompt__submit.css);

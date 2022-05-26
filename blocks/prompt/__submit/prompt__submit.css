@@ -1,0 +1,22 @@
+.prompt__submit {
+    width: 358px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    /*position: absolute;
+    top: 243px;
+    left: 36px;*/
+    margin: 48px 36px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@media screen and (max-width: 768px) {
+    .prompt__submit {
+        width: 238px;
+        height: 46px;
+        margin: 45px 22px 0;        
+    }
+}

@@ -1,0 +1,23 @@
+.prompt__field2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    width: 358px;
+    height: 27px;
+    opacity: 0.2;
+    border: none;
+    border-bottom: 1px solid #000000;
+    /*position: absolute;
+    top: 168px;
+    left: 36px;*/
+    margin: 30px 36px 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .prompt__field2 {
+        width: 238px;
+        margin: 30px 22px 0;   
+    }
+}
