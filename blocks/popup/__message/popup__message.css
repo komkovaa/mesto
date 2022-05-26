@@ -1,4 +1,4 @@
-.prompt__message {
+.popup__message {
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .prompt__message {
+    .popup__message {
         width: 238px;
         font-size: 18px;
         line-height: 22px;

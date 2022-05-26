@@ -1,4 +1,4 @@
-.prompt__form {
+.popup__container {
     font-family: 'Inter', Arial, sans-serif;
     width: 430px;
     height: 330px;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .prompt__form {
+    .popup__container {
         width: 282px;
         height: 322px;
         margin-top: 123px;

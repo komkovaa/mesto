@@ -1,4 +1,4 @@
-.prompt__field1 {
+.popup__field1 {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .prompt__field1 {
+    .popup__field1 {
         width: 238px;
         margin: 75px 22px 0;        
     }

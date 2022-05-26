@@ -1,5 +1,15 @@
 .element__chosen {
+    background-image: url(../../../images/Vector.svg);
+    background-size: cover;
+    width: 22px;
+    height: 19px;
+    border: none;
     position: absolute;
     top: 312px;
     left: 240px;
+}
+
+.element__chosen:hover {
+    opacity: .5;
+    cursor: pointer;
 }

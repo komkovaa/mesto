@@ -1,4 +1,4 @@
-.prompt__submit {
+.popup__submit {
     width: 358px;
     height: 50px;
     background-color: #000;
@@ -13,10 +13,17 @@
     line-height: 22px;
 }
 
+.popup__submit:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
-    .prompt__submit {
+    .popup__submit {
         width: 238px;
         height: 46px;
-        margin: 45px 22px 0;        
+        margin: 45px 22px 0;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

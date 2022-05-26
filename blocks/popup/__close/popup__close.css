@@ -1,4 +1,4 @@
-.prompt__close {
+.popup__close {
     background-image: url(../../../images/Close\ Icon.png);
     width: 32px;
     height: 32px;
@@ -9,8 +9,13 @@
     background-color: #000;
 }
 
+.popup__close:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
 @media screen and (max-width: 768px) {
-    .prompt__close {
+    .popup__close {
         right: 0;
         width: 20px;
         height: 20px;
