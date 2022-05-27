@@ -2,4 +2,10 @@
     font-family: 'Inter', Arial, sans-serif;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+    /*position: fixed;
+    top: 194px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 2;*/
+    border-radius: 10px;
 }
