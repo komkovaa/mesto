@@ -1,20 +1,15 @@
 .popup__desc {
-    font-family: 'interregular', Arial, sans-serif;
-    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     width: 358px;
-    height: 27px;
+    box-sizing: border-box;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 30px 36px 0;
-    box-sizing: border-box;
     color: #000;
 }
 
 @media screen and (max-width: 768px) {
     .popup__desc {
-        width: 238px;
-        margin: 30px 22px 0;   
+        width: 238px;  
     }
 }

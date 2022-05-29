@@ -6,7 +6,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 896px) {
     .footer__author {
         font-size: 14px;
         line-height: 17px;
