@@ -4,7 +4,7 @@
 
 **Технологии в проекте**
 
-Flex-box, Grid Layout, медиа-запросы,
+Flex-box, Grid Layout, медиа-запросы, script
 
 
 * [Mesto](https://komkovaa.github.io/mesto/)
