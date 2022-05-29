@@ -4,6 +4,12 @@
     width: 336px; 
 }
 
+@media screen and (max-width: 896px) {
+    .profile__info {
+        width: 220px;
+        padding-left: 15px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .profile__info {

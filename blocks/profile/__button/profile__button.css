@@ -1,22 +1,22 @@
-.button {
+.profile__button {
     width: 150px;
     height: 50px;
     border: 2px solid #fff;
     border-radius: 2px;
     background-color: #000;
     color: #fff;
-    background-image: url(../../images/Vector\ \(1\).png);
+    background-image: url(../../../images/Plus.svg);
     background-repeat: no-repeat;
     background-position: 50%;
 }
 
-.button:hover {
+.profile__button:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {
-    .button {
+    .profile__button {
         width: 282px;
     }
 }
