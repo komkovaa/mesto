@@ -8,7 +8,7 @@ const popupFormEdit = document.querySelector('.popup__container_type_edit');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 
-const cardList = document.querySelector('.elements__list');
+const cardList = document.querySelector('.elements-list');
 const elementsTemplate = document.querySelector('.elements').content; //Получили содержимое template
 
 const popupAddplace = document.querySelector('.popup_type_addplace');
