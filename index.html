@@ -27,8 +27,8 @@
                 </div>
                 <button class="profile__button" type="button" aria-label="add-element"></button>
             </section>
-            <div class="popup">
-                <form class="popup__container">
+            <div class="popup popup_type_edit">
+                <form class="popup__container popup__container_type_edit">
                     <button class="popup__close" type="button" aria-label="close"></button>
                     <h2 class="popup__message">Редактировать профиль</h2>
                     <input class="popup__desc popup__desc_elem_name" name="name" type="text" placeholder="Укажите Имя" required>
@@ -36,46 +36,41 @@
                     <button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
                 </form>
             </div>
-            <section class="elements">
-                <ul class="elements__list">
-                    <li class="element">
-                        <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg"
-                            alt="Карачаeвo-Черкесcия">
-                        <h2 class="element__name">Карачаeвo-Черкесcия</h2>
-                        <button class="element__chosen" type="button" aria-label="like"></button>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус">
-                        <h2 class="element__name">Гора Эльбрус</h2>
-                        <button class="element__chosen" type="button" aria-label="like"></button>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай">
-                        <h2 class="element__name">Домбай</h2>
-                        <button class="element__chosen" type="button" aria-label="like"></button>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус">
-                        <h2 class="element__name">Гора Эльбрус</h2>
-                        <button class="element__chosen" type="button" aria-label="like"></button>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай">
-                        <h2 class="element__name">Домбай</h2>
-                        <button class="element__chosen" type="button" aria-label="like"></button>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-                        <h2 class="element__name">Карачаeвск</h2>
-                        <button class="element__chosen" type="button" aria-label="like"></button>
-                    </li>
-                </ul>
-            </section>
+
+            <ul class="elements__list">
+            
+            </ul>
+            
+            <div class="popup popup_type_photo">
+                <div class="popup__container popup__container_type_photo">
+                    <button class="popup__close popup__close_photo" type="button" aria-label="close"></button>
+                    <img class="popup__image" src="#" alt="#">
+                    <h2 class="popup__name"></h2>
+                </div>
+            </div>
+
+            <div class="popup popup_type_addplace">
+                <form class="popup__container popup__container_type_addplace">
+                    <button class="popup__close popup__close_add" type="button" aria-label="close"></button>
+                    <h2 class="popup__message">Новое место</h2>
+                    <input class="popup__desc popup__desc_place_name" name="name" type="text" placeholder="Название" required>
+                    <input class="popup__desc popup__desc_place_link" name="job" type="text" placeholder="Ссылка на картинку" required>
+                    <button class="popup__submit popup__submit_add" type="submit" value="Создать">Создать</button>
+                </form>
+            </div>
         </main>
         <footer class="footer">
             <p class="footer__author">&copy; 2022 Анастасия Комкова</p>
         </footer>
     </div>
+    <template class="elements">
+        <li class="element">
+            <img class="element__image">
+            <h2 class="element__name"></h2>
+            <button class="element__chosen" type="button"></button>
+            <button class="element__basket" type="button"></button>
+        </li>
+    </template>
     <script src="script/script.js"></script>
 </body>
 
