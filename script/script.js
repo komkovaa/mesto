@@ -63,6 +63,7 @@ function createCard (item) {
     const cardName = card.querySelector('.element__name');
     cardName.textContent = item.name; 
     cardImage.src = item.link;
+    cardImage.alt = item.name; 
     
     card.querySelector('.element__chosen').addEventListener('click', function (evt) {
         evt.target.classList.toggle('element__chosen_active');
