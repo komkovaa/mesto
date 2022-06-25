@@ -86,7 +86,7 @@ renderCards(initialCards);
 
 function formAddSubmitHandler(evt) {
     evt.preventDefault(); //отключаем событие по умолчанию
-    renderCards([{ name: popupAddName.value, link: popupAddLink.value }]);
+    renderCards({ name: popupAddName.value, link: popupAddLink.value });
     closePopupAddplace();
     evt.target.reset(); //очищаем поля формы
 }
@@ -96,10 +96,14 @@ buttonAddClose.addEventListener('click', closePopupAddplace);
 popupFormAdd.addEventListener('submit', formAddSubmitHandler);
 
 
+
+
 function showPopupPhoto (cardImage, cardName) {
-    popupPhoto.querySelector('.popup__image').src = cardImage.src;
-    popupPhoto.querySelector('.popup__image').alt = cardName.textContent;
-    popupPhoto.querySelector('.popup__name').textContent = cardName.textContent;
+    const popupImage = popupPhoto.querySelector('.popup__image');
+    const popupName = popupPhoto.querySelector('.popup__name');
+    popupImage.src = cardImage.src;
+    popupImage.alt = cardName.textContent;
+    popupName.textContent = cardName.textContent;
     popupPhoto.classList.add('popup_opened');
 };
 
