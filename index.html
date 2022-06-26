@@ -25,14 +25,14 @@
                         <h2 class="profile__job">Исследователь океана</h2>
                     </div>
                 </div>
-                <button class="profile__button" type="button" aria-label="add-element"></button>
+                <button class="profile__place-add-button" type="button" aria-label="add-element"></button>
             </section>
             <div class="popup popup_type_edit">
-                <form class="popup__container popup__container_type_edit">
-                    <button class="popup__close" type="button" aria-label="close"></button>
+                <form class="popup__container popup__container_type_edit popup__form_type_edit">
+                    <button class="popup__close popup__close_close_edit" type="button" aria-label="close"></button>
                     <h2 class="popup__message">Редактировать профиль</h2>
-                    <input class="popup__desc popup__desc_elem_name" name="name" type="text" placeholder="Укажите Имя" required>
-                    <input class="popup__desc popup__desc_elem_job" name="job" type="text" placeholder="Укажите род деятельности" required>
+                    <input class="popup__desc popup__desc_elem_name" name="profileName" type="text" placeholder="Укажите Имя" required>
+                    <input class="popup__desc popup__desc_elem_job" name="profileJob" type="text" placeholder="Укажите род деятельности" required>
                     <button class="popup__submit" type="submit" value="Сохранить">Сохранить</button>
                 </form>
             </div>
@@ -50,11 +50,11 @@
             </div>
 
             <div class="popup popup_type_addplace">
-                <form class="popup__container popup__container_type_addplace">
+                <form class="popup__container popup__container_type_addplace popup__form_type_add-place">
                     <button class="popup__close popup__close_add" type="button" aria-label="close"></button>
                     <h2 class="popup__message">Новое место</h2>
-                    <input class="popup__desc popup__desc_place_name" name="name" type="text" placeholder="Название" required>
-                    <input class="popup__desc popup__desc_place_link" name="job" type="text" placeholder="Ссылка на картинку" required>
+                    <input class="popup__desc popup__desc_place_name" name="placeName" type="text" placeholder="Название" required>
+                    <input class="popup__desc popup__desc_place_link" name="placeLink" type="text" placeholder="Ссылка на картинку" required>
                     <button class="popup__submit popup__submit_add" type="submit" value="Создать">Создать</button>
                 </form>
             </div>
