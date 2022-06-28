@@ -91,8 +91,7 @@ function onPlaceAddCloseButtonClick(evt) {
 
 function onPlaceAddFormSubmit(evt) {
     evt.preventDefault(); //отключаем событие по умолчанию
-    const cardData = { name: placeAddForm.placeName.value, link: placeAddForm.placeLink.value };
-    cardList.prepend(createCard(cardData));
+    cardList.prepend(createCard({ name: placeAddForm.placeName.value, link: placeAddForm.placeLink.value }));
     closePopup(evt.currentTarget.closest('.popup'));
     evt.target.reset(); //очищаем поля формы
 }
