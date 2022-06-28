@@ -13,6 +13,8 @@ const placeAddCloseButton = document.querySelector('.popup__close_add');
 const placeAddForm = document.querySelector('.popup__form_type_add-place');
 
 const photoPopup = document.querySelector('.popup_type_photo');
+const popupImage = photoPopup.querySelector('.popup__image');
+const popupName = photoPopup.querySelector('.popup__name');
 const photoPopupCloseButton = document.querySelector('.popup__close_photo');
 
 function showPopup (popup) {
