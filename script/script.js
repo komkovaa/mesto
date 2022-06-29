@@ -41,8 +41,6 @@ function createCard (item) {
         card.remove();
     }); 
     cardImage.addEventListener('click', function(event) {
-        const popupImage = photoPopup.querySelector('.popup__image');
-        const popupName = photoPopup.querySelector('.popup__name');
         popupImage.src = cardImage.src;
         popupImage.alt = cardName.textContent;
         popupName.textContent = cardName.textContent;
