@@ -1,9 +1,0 @@
-.popup__desc_elem_job {
-    margin-top: 30px;
-}
-
-@media screen and (max-width: 768px) {
-    .popup__desc_elem_job {
-        margin-top: 30px;        
-    }
-}
