@@ -1,3 +1,4 @@
+const overlay = document.querySelectorAll('.popup');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -17,12 +18,34 @@ const popupImage = photoPopup.querySelector('.popup__image');
 const popupName = photoPopup.querySelector('.popup__name');
 const photoPopupCloseButton = document.querySelector('.popup__close_photo');
 
+
+
+function closePopupByOverlay (evt) {
+    if (evt.target === evt.currentTarget) {
+        closePopup(evt.currentTarget.closest('.popup'));
+    }
+}
+
+overlay.forEach((popup) => {
+    popup.addEventListener('click', closePopupByOverlay);
+})
+
+
+function ClosePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+    }
+}
+
 function showPopup (popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', ClosePopupByEsc);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', ClosePopupByEsc);
 }
 
 
@@ -81,6 +104,7 @@ profileEditButton.addEventListener('click', onProfileEditButtonClick);
 profileEditPopupCloseButton.addEventListener('click', onProfileEditPopupCloseButtonClick);
 profileEditForm.addEventListener('submit', onProfileEditFormSubmit);
 
+
 function onPlaceAddButtonClick() {
     showPopup(placeAddPopup);
 }
@@ -106,3 +130,11 @@ function onPhotoPopupCloseButtonClick(evt) {
 };
 
 photoPopupCloseButton.addEventListener('click', onPhotoPopupCloseButtonClick);
+
+
+
+
+
+
+
+
