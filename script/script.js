@@ -19,17 +19,11 @@ const popupName = photoPopup.querySelector('.popup__name');
 const photoPopupCloseButton = document.querySelector('.popup__close_photo');
 
 
-
 function closePopupByOverlay (evt) {
     if (evt.target === evt.currentTarget) {
         closePopup(evt.currentTarget.closest('.popup'));
     }
 }
-
-overlay.forEach((popup) => {
-    popup.addEventListener('click', closePopupByOverlay);
-})
-
 
 function ClosePopupByEsc(evt) {
     if (evt.key === 'Escape') {
@@ -40,6 +34,7 @@ function ClosePopupByEsc(evt) {
 
 function showPopup (popup) {
     popup.classList.add('popup_opened');
+    enableValidation(formElement, config); 
     document.addEventListener('keydown', ClosePopupByEsc);
 }
 
@@ -47,7 +42,6 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', ClosePopupByEsc);
 }
-
 
 function createCard (item) {
     const card = elementsTemplate.querySelector('.element').cloneNode(true); 
@@ -79,9 +73,6 @@ function renderCards(cardsArray) {
     });
 }
 
-renderCards(initialCards);
-
-
 function onProfileEditButtonClick() {
     const popup = document.querySelector('.popup_type_edit');
     profileEditForm.profileName.value = profileName.textContent; // Получите значение полей jobInput и nameInput из свойства value
@@ -89,28 +80,12 @@ function onProfileEditButtonClick() {
     showPopup(popup);
 }
 
-function onProfileEditPopupCloseButtonClick(evt) {
-    closePopup(evt.currentTarget.closest('.popup'));
-}
-
 function onProfileEditFormSubmit(evt) {
     evt.preventDefault(); 
     profileName.textContent = profileEditForm.profileName.value;
     profileJob.textContent = profileEditForm.profileJob.value;
     closePopup(evt.currentTarget.closest('.popup'));
-}
-
-profileEditButton.addEventListener('click', onProfileEditButtonClick);
-profileEditPopupCloseButton.addEventListener('click', onProfileEditPopupCloseButtonClick);
-profileEditForm.addEventListener('submit', onProfileEditFormSubmit);
-
-
-function onPlaceAddButtonClick() {
-    showPopup(placeAddPopup);
-}
-
-function onPlaceAddCloseButtonClick(evt) {
-    closePopup(evt.currentTarget.closest('.popup'));
+    
 }
 
 function onPlaceAddFormSubmit(evt) {
@@ -120,19 +95,21 @@ function onPlaceAddFormSubmit(evt) {
     evt.target.reset(); //очищаем поля формы
 }
 
-placeAddButton.addEventListener('click', onPlaceAddButtonClick);
-placeAddCloseButton.addEventListener('click', onPlaceAddCloseButtonClick);
+profileEditButton.addEventListener('click', onProfileEditButtonClick);
+profileEditPopupCloseButton.addEventListener('click', (evt) => closePopup(evt.currentTarget.closest('.popup')));
+profileEditForm.addEventListener('submit', onProfileEditFormSubmit);
+
+placeAddButton.addEventListener('click', () => showPopup(placeAddPopup));
+placeAddCloseButton.addEventListener('click', (evt) => closePopup(evt.currentTarget.closest('.popup')));
 placeAddForm.addEventListener('submit', onPlaceAddFormSubmit);
 
+photoPopupCloseButton.addEventListener('click', (evt) => closePopup(evt.currentTarget.closest('.popup')));
 
-function onPhotoPopupCloseButtonClick(evt) {
-    closePopup(evt.currentTarget.closest('.popup'));
-};
+overlay.forEach((popup) => {
+    popup.addEventListener('click', closePopupByOverlay);
+})
 
-photoPopupCloseButton.addEventListener('click', onPhotoPopupCloseButtonClick);
-
-
-
+renderCards(initialCards);
 
 
 
