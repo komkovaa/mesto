@@ -30,8 +30,6 @@
 @import url(../blocks/popup/__desc/_type/popup__desc_type_error.css);
 @import url(../blocks/popup/__desc-error/popup__desc-error.css);
 @import url(../blocks/popup/__desc-error/_active/popup__desc-error_active.css);
-@import url(../blocks/popup/__desc/_place/popup__desc_place_name.css);
-@import url(../blocks/popup/__desc/_place/popup__desc_place_link.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__message/popup__message.css);
