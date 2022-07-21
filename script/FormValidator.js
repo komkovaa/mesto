@@ -30,11 +30,6 @@ export class FormValidator {
         }
     };
 
-    _clear() {
-        const formError = this._formElement.querySelector(`.${formInput.id}-error`);
-        formError.textContent = '';
-    }
-
     _toggleButtonState(inputList, buttonElement) {
         if (this._hasInvalidInput(inputList)) {
             buttonElement.classList.add(this._config.inactiveButtonClass);
