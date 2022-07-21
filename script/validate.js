@@ -1,4 +1,4 @@
-//Вынесем все необходимые элементы формы в константы
+/*
 const formElement = document.querySelector('.popup__form');
 const formInput = document.querySelector('.popup__desc');
 const config = {
@@ -36,6 +36,11 @@ const isValid = (formElement, formInput, config) => {
     }
 };
 
+const clear = () => {
+  const formError = formElement.querySelector(`.${formInput.id}-error`);
+  formError.textContent = '';
+}
+
 const toggleButtonState = (inputList, buttonElement, config) => {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add(config.inactiveButtonClass);
@@ -46,7 +51,7 @@ const toggleButtonState = (inputList, buttonElement, config) => {
     }
   }
 
-const hasInvalidInput = (inputList) => {
+const hasInvalidInput = (inputList) => { //проверяет, все ли поля форма валидны
     return inputList.some((formInput) => {
         return !formInput.validity.valid;
      })
