@@ -2,6 +2,8 @@ const popupElement = document.querySelector('.popup_type_photo');
 const popupImage = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__name');
 const photoPopupCloseButton = document.querySelector('.popup__close_photo');
+import { showPopup } from './index.js';
+import { closePopup } from './index.js';
 
 export class Card {
     constructor(data, cardSelector) { //data - список аргументов в виде объекта, cardSelector - передаем селектор шаблона (template)
@@ -52,15 +54,17 @@ export class Card {
         });
     }
 
+  
+
     _handleOpenPopup() {
         popupImage.src = this._image;
         popupImage.alt = this._name;
         popupName.textContent = this._name;
-        popupElement.classList.add('popup_opened');
+        showPopup(popupElement);
     }
 
     _handleClosePopup() {
         popupImage.src = '';
-        popupElement.classList.remove('popup_opened');
+        closePopup(popupElement);
     }
 }
