@@ -3,7 +3,7 @@ const popupImage = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__name');
 const photoPopupCloseButton = document.querySelector('.popup__close_photo');
 import { showPopup } from './index.js';
-import { closePopup } from './index.js';
+import { handleClosePopup } from './index.js';
 
 export class Card {
     constructor(data, cardSelector) { //data - список аргументов в виде объекта, cardSelector - передаем селектор шаблона (template)
@@ -27,16 +27,13 @@ export class Card {
     //Создаем метод, который вставит данные в разметку и подготовит карточку к публикации. 
     generateCard() {
         this._setEventListeners();
-
         this._cardImage.src = this._image;
         this._cardImage.alt = this._name;
         this._element.querySelector('.element__name').textContent = this._name;
-
         return this._element;
     }
 
     _setEventListeners() {
-
         this._element.querySelector('.element__chosen').addEventListener('click', (evt) => {
             evt.target.classList.toggle('element__chosen_active');
         });
@@ -49,22 +46,15 @@ export class Card {
             this._handleOpenPopup()
         });
 
-        photoPopupCloseButton.addEventListener('click', () => {
-            this._handleClosePopup()
+        photoPopupCloseButton.addEventListener('click', (evt) => {
+            handleClosePopup(evt)
         });
     }
-
-  
 
     _handleOpenPopup() {
         popupImage.src = this._image;
         popupImage.alt = this._name;
         popupName.textContent = this._name;
         showPopup(popupElement);
-    }
-
-    _handleClosePopup() {
-        popupImage.src = '';
-        closePopup(popupElement);
     }
 }
