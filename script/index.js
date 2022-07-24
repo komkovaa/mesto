@@ -13,9 +13,9 @@ const placeAddPopup = document.querySelector('.popup_type_addplace'); // rename 
 const placeAddButton = document.querySelector('.profile__place-add-button');
 const placeAddCloseButton = document.querySelector('.popup__close_add');
 const placeAddForm = document.querySelector('.popup__form_type_add-place');
-const placeAddSubmitButton = document.querySelector('.popup__submit_add');
 
 const photoPopup = document.querySelector('.popup_type_photo');
+const photoPopupCloseButton = document.querySelector('.popup__close_photo');
 
 const config = {
     formSelector: '.popup__form',
@@ -50,7 +50,6 @@ function сlosePopupByEsc(evt) {
 
 export function showPopup(popup) {
     popup.classList.add('popup_opened');
-    
     document.addEventListener('keydown', сlosePopupByEsc);
 }
 
@@ -69,10 +68,6 @@ initialCards.forEach((item) => {
     cardList.prepend(createCard(item));
 })
 
-export function handleClosePopup(evt) {
-    closePopup(photoPopup);
-}
-
 function onProfileEditButtonClick() {
     profileEditForm.profileName.value = profileName.textContent; // Получите значение полей jobInput и nameInput из свойства value
     profileEditForm.profileJob.value = profileJob.textContent;
@@ -84,12 +79,6 @@ function onProfileEditFormSubmit(evt) {
     profileName.textContent = profileEditForm.profileName.value;
     profileJob.textContent = profileEditForm.profileJob.value;
     closePopup(profileEditPopup);
-
-}
-
-function disableButton() {
-    placeAddSubmitButton.classList.add('popup__submit_inactive');
-    placeAddSubmitButton.setAttribute('disabled', true);
 }
 
 function onPlaceAddFormSubmit(evt) {
@@ -97,7 +86,7 @@ function onPlaceAddFormSubmit(evt) {
     cardList.prepend(createCard({ name: placeAddForm.placeName.value, link: placeAddForm.placeLink.value }));
     closePopup(placeAddPopup);
     evt.target.reset(); //очищаем поля формы
-    disableButton();
+    formValidatorAdd.disableButton();
 }
 
 profileEditButton.addEventListener('click', onProfileEditButtonClick);
@@ -111,3 +100,5 @@ placeAddForm.addEventListener('submit', onPlaceAddFormSubmit);
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', closePopupByOverlay);
 })
+
+photoPopupCloseButton.addEventListener('click', (evt) => closePopup(photoPopup));

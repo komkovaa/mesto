@@ -48,13 +48,18 @@ export class FormValidator {
         })
     };
 
+    disableButton() {
+        this._buttonElement.classList.add(this._config.inactiveButtonClass);
+        this._buttonElement.setAttribute('disabled', true);
+    }
+
     _setEventListeners() {
         // Вызовем toggleButtonState, чтобы не ждать ввода данных в поля
-        this._toggleButtonState(this._inputList, this._buttonElement);
+        this._toggleButtonState();
         this._inputList.forEach((formInput) => {
             formInput.addEventListener('input', () => {
                 this._isValid(formInput);
-                this._toggleButtonState(this._inputList, this._buttonElement);
+                this._toggleButtonState();
             });
         });
     };
