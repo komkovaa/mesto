@@ -1,9 +1,8 @@
 const popupElement = document.querySelector('.popup_type_photo');
 const popupImage = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__name');
-const photoPopupCloseButton = document.querySelector('.popup__close_photo');
+
 import { showPopup } from './index.js';
-import { handleClosePopup } from './index.js';
 
 export class Card {
     constructor(data, cardSelector) { //data - список аргументов в виде объекта, cardSelector - передаем селектор шаблона (template)
@@ -44,10 +43,6 @@ export class Card {
 
         this._cardImage.addEventListener('click', () => {
             this._handleOpenPopup()
-        });
-
-        photoPopupCloseButton.addEventListener('click', (evt) => {
-            handleClosePopup(evt)
         });
     }
 
