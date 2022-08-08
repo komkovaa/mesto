@@ -1,3 +1,5 @@
+//Вставка элементов в раметку
+
 export class Section {
     constructor({ items, renderer }, containerSelector) {
         this._renderedItem = items;
