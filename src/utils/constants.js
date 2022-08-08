@@ -16,7 +16,16 @@ export const config = {
     submitButtonSelector: '.popup__submit',
     inactiveButtonClass: 'popup__submit_inactive',
     inputErrorClass: 'popup__desc_type_error',
-    errorClass: 'popup__desc-error_active'
+    errorClass: 'popup__desc-error_active',
+    popupTypeAddPlace: '.popup_type_addplace',
+    popupFormTypeAddPlace: '.popup__form_type_add-place',
+    popupTypeEdit: '.popup_type_edit',
+    popupFormTypeEdit: '.popup__form_type_edit',
+    popupTypeFoto: '.popup_type_photo',
+    popupImage: '.popup__image',
+    popupName: '.popup__name',
+    profileName: '.profile__name',
+    profileJob: '.profile__job'
 }
 
 export const initialCards = [

@@ -53,6 +53,13 @@ export class FormValidator {
         this._buttonElement.setAttribute('disabled', true);
     }
 
+    resetValidator() {
+        this._toggleButtonState();
+        this._inputList.forEach((item) => {
+            this._hideInputError(item);
+        });
+    }
+
     _setEventListeners() {
         // Вызовем toggleButtonState, чтобы не ждать ввода данных в поля
         this._toggleButtonState();

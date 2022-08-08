@@ -2,7 +2,6 @@ export class Card {
     constructor(data, cardSelector, handleCardClick) { //data - список аргументов в виде объекта, cardSelector - передаем селектор шаблона (template), handleOpenPopup - функция из index.js
         this._image = data.link;
         this._name = data.name;
-        this._popup = document.querySelector('.popup');
         this._cardSelector = cardSelector;
         this._element = this._getTemplate();
         this._cardImage = this._element.querySelector('.element__image');
