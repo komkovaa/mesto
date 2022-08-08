@@ -1,12 +1,12 @@
 export class Card {
-    constructor(data, cardSelector, handleOpenPopup) { //data - список аргументов в виде объекта, cardSelector - передаем селектор шаблона (template), handleOpenPopup - функция из index.js
+    constructor(data, cardSelector, handleCardClick) { //data - список аргументов в виде объекта, cardSelector - передаем селектор шаблона (template), handleOpenPopup - функция из index.js
         this._image = data.link;
         this._name = data.name;
         this._popup = document.querySelector('.popup');
         this._cardSelector = cardSelector;
         this._element = this._getTemplate();
         this._cardImage = this._element.querySelector('.element__image');
-        this._handleOpenPopup = handleOpenPopup;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -37,7 +37,7 @@ export class Card {
         });
 
         this._cardImage.addEventListener('click', () => {
-            this._handleOpenPopup(this._name, this._image);
+            this._handleCardClick(this._name, this._image);
         });
     }
 }
