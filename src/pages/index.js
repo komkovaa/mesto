@@ -25,71 +25,54 @@ const formValidatorEdit = new FormValidator(config, profileEditForm);
 formValidatorEdit.enableValidation();
 
 const profileEditPopup = new PopupWithForm({
-    popupSelector: '.popup_type_edit',
-    formSelector: '.popup__form_type_edit',
+    popupSelector: config.popupTypeEdit,
+    formSelector: config.popupFormTypeEdit,
     handleFormSubmit: (values) => {
         profileName.textContent = values.profileName;
         profileJob.textContent = values.profileJob;
-        profileEditPopup.closePopup();
+        profileEditPopup.close();
     },}
 );
 profileEditPopup.setEventListeners();
-
-/*const profileEditPopup = new PopupWithForm(
-    '.popup_type_edit',
-    '.popup__form_type_edit',
-    (values) => {
-        profileName.textContent = values.profileName;
-        profileJob.textContent = values.profileJob;
-        profileEditPopup.closePopup();
-    },
-);
-profileEditPopup.setEventListeners();*/
 
 profileEditButton.addEventListener('click', () => {
     const dataUser = userInfo.getUserInfo();
     profileEditForm.profileName.value = dataUser.name; // Получите значение полей jobInput и nameInput из свойства value
     profileEditForm.profileJob.value = dataUser.job;
-    profileEditPopup.openPopup();
+    profileEditPopup.open();
+    formValidatorEdit.resetValidator();
 });
 
 
 const placeAddPopup = new PopupWithForm({
-    popupSelector: '.popup_type_addplace',
-    formSelector: '.popup__form_type_add-place',
+    popupSelector: config.popupTypeAddPlace,
+    formSelector: config.popupFormTypeAddPlace,
     handleFormSubmit: (values) => {
         cards.addItem(createCard({ name: values.placeName, link: values.placeLink }));
-        placeAddPopup.closePopup();
+        placeAddPopup.close();
         formValidatorAdd.disableButton();
         },
     });
 placeAddPopup.setEventListeners();
 
-/*const placeAddPopup = new PopupWithForm(
-    '.popup_type_addplace',
-    '.popup__form_type_add-place',
-    (values) => {
-        cards.addItem(createCard({ name: values.placeName, link: values.placeLink }));
-        placeAddPopup.closePopup();
-        formValidatorAdd.disableButton();
-        },
-    );
-placeAddPopup.setEventListeners();*/
-
-placeAddButton.addEventListener('click', () => placeAddPopup.openPopup());
+placeAddButton.addEventListener('click', () => {
+    placeAddPopup.open();
+    formValidatorAdd.resetValidator();
+}
+);
 
 
 const photoPopup = new PopupWithImage({
-    popupSelector: '.popup_type_photo',
-    imagePopupSelector: '.popup__image',
-    namePopupSelector: '.popup__name',
+    popupSelector: config.popupTypeFoto,
+    imagePopupSelector: config.popupImage,
+    namePopupSelector: config.popupName,
 });
 
 photoPopup.setEventListeners();
 
 const userInfo = new UserInfo({
-    nameSelector: '.profile__name',
-    jobSelector: '.profile__job'
+    nameSelector: config.profileName,
+    jobSelector: config.profileJob,
 });
 
 const createCard = (item) => {
@@ -111,5 +94,5 @@ function handleCardClick(name, image) {
     popupImage.src = image;
     popupImage.alt = name;
     popupName.textContent = name;
-    photoPopup.openPopup(name, image);
+    photoPopup.open(name, image);
 }
