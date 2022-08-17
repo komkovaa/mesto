@@ -91,8 +91,5 @@ const cards = new Section({
 cards.renderItems();
 
 function handleCardClick(name, image) {
-    popupImage.src = image;
-    popupImage.alt = name;
-    popupName.textContent = name;
     photoPopup.open(name, image);
 }
