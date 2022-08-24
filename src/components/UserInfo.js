@@ -1,7 +1,8 @@
 export class UserInfo {
-    constructor({ nameSelector, jobSelector }) {
+    constructor({ nameSelector, jobSelector, avatarSelector }) {
         this._nameElement = document.querySelector(nameSelector);
         this._jobElement = document.querySelector(jobSelector);
+        this._avatarElement = document.querySelector(avatarSelector);
     }
     // метод возвращает объект с данными пользователя при открытии формы
     getUserInfo() {
@@ -11,8 +12,12 @@ export class UserInfo {
         };
     }
     //метод принимает новые данные пользователя и добавляет их на страницу
-    setUserInfo(dataUser) {
-        this._nameElement.textContent = dataUser.name;
-        this._jobElement.textContent = dataUser.job;
+    setUserInfo(data) {
+        this._nameElement.textContent = data.name;
+        this._jobElement.textContent = data.about;
     };
+    //метод принимает новую аватарку и добавляет на страницу
+    setUserAvatar(data) {
+        this._avatarElement.src = data.avatar;
+      }
 }

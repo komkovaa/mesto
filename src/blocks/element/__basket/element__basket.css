@@ -1,4 +1,5 @@
 .element__basket {
+    visibility: hidden;
     background-image: url(../../../images/Basket.svg);
     background-color: transparent;
     border: none;
