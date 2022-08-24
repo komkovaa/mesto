@@ -8,7 +8,8 @@
 .profile{align-items:center;display:flex;justify-content:space-between;padding-top:40px}@media screen and (max-width:768px){.profile{flex-direction:column;height:286px;margin:0 auto;padding-top:42px}}
 .profile__person{align-items:center;display:flex}@media screen and (max-width:768px){.profile__person{flex-direction:column;width:282px}}
 .profile__info{color:#fff;padding-left:30px;width:336px}@media screen and (max-width:896px){.profile__info{padding-left:15px;width:220px}}@media screen and (max-width:768px){.profile__info{padding-left:0;width:282px}}
-.profile__avatar{border-radius:50%;max-width:120px}
+.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;width:120px}
+.profile__avatar-container{align-items:center;border-radius:50%;cursor:pointer;display:flex;flex-direction:row;justify-content:center;position:relative;transition:opacity .5s ease-in-out}.profile__avatar-container:after{background-color:transparent;background-repeat:no-repeat;content:"";height:100%;opacity:.6;position:absolute;transition:opacity .5s ease-in-out;width:100%}.profile__avatar-container:hover:after{background-color:rgba(0,0,0,.8);background-image:url(a086f758840ae814ecde.svg);background-position:50%;border-radius:50%;opacity:.8}
 .profile__block{align-items:baseline;display:flex;justify-content:space-between}@media screen and (max-width:768px){.profile__block{align-items:center;justify-content:flex-start;padding-top:26px}}
 .profile__name{font-size:42px;font-weight:500;line-height:48px;margin:0;max-width:294px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:896px){.profile__name{font-size:27px;line-height:33px;padding:0 10px 0 0;width:220px}}@media screen and (max-width:768px){.profile__name{padding:0 10px 0 46px;width:189px}}
 .profile__job{font-size:18px;font-weight:400;line-height:22px;margin:0;max-width:336px;overflow:hidden;padding:16px 0 0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:896px){.profile__job{font-size:14px;line-height:17px;padding:14px 0 0;width:220px}}@media screen and (max-width:768px){.profile__job{text-align:center;width:282px}}
@@ -18,8 +19,11 @@
 .element{background-color:#fff;border-radius:10px;display:flex;flex-wrap:wrap;justify-content:space-between;margin:0;max-width:282px;position:relative}
 .element__image{border-radius:10px 10px 0 0;height:282px;max-width:282px;-o-object-fit:cover;object-fit:cover;width:100%}.element__image:hover{cursor:pointer}
 .element__name{font-size:24px;font-weight:900;line-height:29px;margin:0;max-width:219px;overflow:hidden;padding:25px 0 31px 21px;text-overflow:ellipsis;white-space:nowrap}
-.element__chosen{background-color:transparent;background-image:url(1ad06e85f169668a1f36.svg);background-size:cover;border:none;height:19px;margin:30px 20px 31px 0;width:22px}.element__chosen:hover{cursor:pointer;opacity:.5}
-.element__basket{background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);border:none;height:19px;position:absolute;right:20px;top:20px;width:18px}.element__basket:hover{cursor:pointer;opacity:.5}
+.element__chosen{background-color:transparent;background-image:url(1ad06e85f169668a1f36.svg);background-size:cover;border:none;height:19px;width:22px}.element__chosen:hover{cursor:pointer;opacity:.5}
+.element__like-section{display:flex;flex-direction:column;justify-content:center;margin-right:20px}
+.element__like-counter{align-self:center;font-size:13px;font-weight:400;line-height:16px;margin-top:3px}
+.element__basket{background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);border:none;height:19px;position:absolute;right:20px;top:20px;visibility:hidden;width:18px}.element__basket:hover{cursor:pointer;opacity:.5}
+.element__basket_active{visibility:visible}.element__basket_active:hover{cursor:pointer;opacity:.5}
 .element__chosen_active{background-image:url(35948469632d0421d697.svg)}
 .footer{color:#545454;padding-bottom:60px;padding-top:66px}@media screen and (max-width:896px){.footer{margin:0 auto;max-width:581px;padding-bottom:36px;padding-top:48px}}@media screen and (max-width:768px){.footer{max-width:282px;padding-bottom:36px;padding-top:48px}}
 .footer__author{font-size:18px;line-height:22px;margin:0;padding:0}@media screen and (max-width:896px){.footer__author{font-size:14px;line-height:17px}}
