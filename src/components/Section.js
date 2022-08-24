@@ -1,14 +1,13 @@
 //Вставка элементов в раметку
 
 export class Section {
-    constructor({ items, renderer }, containerSelector) {
-        this._renderedItem = items;
+    constructor({ renderer }, containerSelector) {
         this._renderer = renderer;
         this._container = document.querySelector(containerSelector);
     }
 // Отрисовка всех элементов
-    renderItems() {
-        this._renderedItem.forEach((item) => {
+    renderItems(items) {
+        items.forEach((item) => {
             this._renderer(item);
         });
     }

@@ -5,6 +5,7 @@ export class PopupWithForm extends Popup {
         super(popupSelector);
         this._formElement = this._popupElement.querySelector(formSelector);
         this._handleFormSubmit = handleFormSubmit;
+        this._popupSubmitButton = this._popupElement.querySelector('.popup__submit');
     }
 
     //метод собирает данные всех полей формы
@@ -37,4 +38,13 @@ export class PopupWithForm extends Popup {
         super.close();// вызываем родительский метод
         this._formElement.reset();// дополняем новой функциональностью: очищаем форму
     }
+
+    
+    renderLoading(isLoading, text) {
+        if (isLoading) {
+          this._popupSubmitButton.textContent = text;
+        } else {
+          this._popupSubmitButton.textContent = "Сохранить";
+        }
+      }
 }
