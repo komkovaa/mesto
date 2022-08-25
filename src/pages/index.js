@@ -1,5 +1,5 @@
 import './index.css';
-import { Api } from '../components/API.js';
+import { Api } from '../components/Api.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
@@ -18,6 +18,7 @@ import {
     placeAddButton,
     apiConfig,
 } from '../utils/constants.js';
+let ownerId;
 
 const formValidatorAvatar = new FormValidator(config, avatarForm);
 formValidatorAvatar.enableValidation();
@@ -42,7 +43,20 @@ const cards = new Section({
     cardListSelector
 );
 
-api.getUserInfo()
+Promise.all([
+    api.getUserInfo(),
+    api.getInitialCards()
+])
+    .then(([info, initialCards]) => {
+        ownerId = info._id;
+        userInfo.setUserInfo(info);
+        userInfo.setUserAvatar(info);
+        cards.renderItems(initialCards);
+    })
+    .catch(err => console.log(err));
+
+
+/*api.getUserInfo()
     .then((res) => {
         userInfo.setUserInfo(res);
         userInfo.setUserAvatar(res);
@@ -53,7 +67,7 @@ api.getInitialCards()
     .then(data => {
         cards.renderItems(data);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err));*/
 
 const avatarPopup = new PopupWithForm({
     popupSelector: config.popupAvatar,
@@ -137,7 +151,7 @@ const placeDeletePopup = new PopupWithConfirm({
     formSelector: config.popupFormTypeConfirm,
     handleFormSubmit: (cardId, cardElement) => {
         api.deleteCard(cardId)
-            .then(cardElement.remove())
+            .then(() => cards.removeItem(cardElement))
             .catch(err => console.log(err));
     },
 });
@@ -153,7 +167,7 @@ const photoPopup = new PopupWithImage({
 photoPopup.setEventListeners();
 
 const createCard = (item) => {
-    const card = new Card(item, '.elements', {
+    const card = new Card(item, ownerId, '.elements', {
         handleLikeClick: () => {
             api.addLike(item._id)
                 .then((item) => {

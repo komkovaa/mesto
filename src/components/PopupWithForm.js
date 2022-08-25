@@ -6,12 +6,12 @@ export class PopupWithForm extends Popup {
         this._formElement = this._popupElement.querySelector(formSelector);
         this._handleFormSubmit = handleFormSubmit;
         this._popupSubmitButton = this._popupElement.querySelector('.popup__submit');
+        this._textOnSubmitButton = this._popupSubmitButton.textContent;
+        this._inputList = this._popupElement.querySelectorAll('.popup__desc'); // достаём все элементы полей
     }
 
     //метод собирает данные всех полей формы
     _getInputValues() {
-       // достаём все элементы полей
-        this._inputList = this._popupElement.querySelectorAll('.popup__desc');
         // создаём пустой объект
         this._formValues = {};
         // добавляем в этот объект значения всех полей
@@ -44,7 +44,7 @@ export class PopupWithForm extends Popup {
         if (isLoading) {
           this._popupSubmitButton.textContent = text;
         } else {
-          this._popupSubmitButton.textContent = "Сохранить";
+          this._textOnSubmitButton;
         }
       }
 }
