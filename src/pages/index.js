@@ -35,6 +35,8 @@ const userInfo = new UserInfo({
     avatarSelector: config.profileAvatar,
 });
 
+const cardsById = {};
+
 const cards = new Section({
     renderer: (item) => {
         cards.addItem(createCard(item));
@@ -78,7 +80,6 @@ const avatarPopup = new PopupWithForm({
             .then((res) => {
                 userInfo.setUserAvatar(res);
                 avatarPopup.close();
-                formValidatorAvatar.disableButton();
             })
             .catch(err => console.log(err))
             .finally(() => {
@@ -129,7 +130,6 @@ const placeAddPopup = new PopupWithForm({
             .then((res) => {
                 cards.addItem(createCard(res));
                 placeAddPopup.close();
-                formValidatorAdd.disableButton();
             })
             .catch(err => console.log(err))
             .finally(() => {
@@ -149,9 +149,9 @@ placeAddButton.addEventListener('click', () => {
 const placeDeletePopup = new PopupWithConfirm({
     popupSelector: config.popupTypeConfirm,
     formSelector: config.popupFormTypeConfirm,
-    handleFormSubmit: (cardId, cardElement) => {
-        api.deleteCard(cardId)
-            .then(() => cards.removeItem(cardElement))
+    handleFormSubmit: (item) => {
+        api.deleteCard(item)
+            .then(() => cardsById[item.id].removeCard())
             .catch(err => console.log(err));
     },
 });
@@ -167,12 +167,12 @@ const photoPopup = new PopupWithImage({
 photoPopup.setEventListeners();
 
 const createCard = (item) => {
-    const card = new Card(item, ownerId, '.elements', {
+    cardsById[item.id] = new Card(item, ownerId, '.elements', {
         handleLikeClick: () => {
             api.addLike(item._id)
                 .then((item) => {
-                    card.counterLike(item.likes);
-                    card.toggleLike();
+                    cardsById[item.id].counterLike(item.likes);
+                    cardsById[item.id].toggleLike();
                 })
                 .catch((err) => console.log(err))
         },
@@ -180,8 +180,8 @@ const createCard = (item) => {
         handleDeleteLikeClick: () => {
             api.deleteLike(item._id)
                 .then((item) => {
-                    card.counterLike(item.likes);
-                    card.toggleLike();
+                    cardsById[item.id].counterLike(item.likes);
+                    cardsById[item.id].toggleLike();
                 })
                 .catch((err) => console.log(err))
         },
@@ -194,5 +194,5 @@ const createCard = (item) => {
             photoPopup.open(name, image);
         }
     });
-    return card.generateCard();
+    return cardsById[item.id].generateCard();
 };
