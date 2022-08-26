@@ -68,6 +68,11 @@ export class Card {
             }
     }
 
+    removeCard() {
+        this._element.remove();
+        this._element = null;
+    }
+
     _setEventListeners() {
         this._likeButton.addEventListener('click', () => 
             this._setLikeHandler()
